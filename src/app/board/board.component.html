@@ -1,0 +1,49 @@
+<div class="header" [style.backgroundColor]="boardColor()">
+  <div class="header-container">
+    <div class="name">{{ board.name }}</div>
+    <div class="actions">
+      <div class="header-btn" (click)="hideTaskMenu = !hideTaskMenu">
+        <i class="fa fa-th"></i> Tasks
+        <div *ngIf="!hideTaskMenu" class="unassigned-tasks btn-menu">
+          <div class="menu-header">Unassigned Tasks</div>
+          <div class="menu-content">
+            <task
+              *ngFor="let task of tasks | missingstorytaskfilter"
+              [card]="task"></task>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="table">
+    <div class="story-row">
+      <div *ngFor="let list of lists; let i = index" class="list list-header">
+        <div *ngIf="i === 0" class="points">{{ totalStoryPoints(stories) }}</div>
+        <div *ngIf="list.name === 'Done'" class="points">
+          {{ totalCompletedStoryPoints(stories) }} | {{ totalStoryPoints(stories) -  totalCompletedStoryPoints(stories) }}
+        </div>
+        <div class="list-header">{{ list.name }}</div>
+      </div>
+    </div>
+    <div *ngFor="let story of stories" class="story-row">
+      <div
+        *ngFor="let list of lists; let i = index"
+        class="list"
+        droppable
+        [dragOverClass]="'drag-target'"
+        (onDrop)="onCardDrop($event, list, story)">
+        <div class="list-content">
+          <story *ngIf="i === 0" [card]="story" (addTask)="addTask(story)"></story>
+          <task
+            *ngFor="let task of tasks | cardlistfilter:list.id | storytaskfilter:story.id"
+            (newTask)="addTask(story)"
+            (saveTask)="saveTask(task)"
+            (cancelTask)="cancelTask(task)"
+            [card]="task"></task>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

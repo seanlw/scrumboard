@@ -1,0 +1,161 @@
+@import 'bootstrap';
+
+.header {
+  padding: 0;
+  background-color: #127abd;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  .header-container {
+    background-color: rgba(0,0,0,.15);
+    padding: 5px 8px;
+    width: 100%;
+    height: 30px;
+  }
+
+  .name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: $boardHeaderTextColor;
+  }
+
+  .actions {
+    position: absolute;
+    top: 5px;
+    right: 0;
+
+    .header-btn {
+      transition: .1s ease;
+      background: rgba(255,255,255,.3);
+      color: #f3f3f3;
+      line-height: 30px;
+      margin-right: 8px;
+      min-width: 30px;
+      padding: 0;
+      user-select: none;
+      border-radius: 3px;
+      display: block;
+      text-decoration: none;
+      float: left;
+      position: relative;
+      height: 30px;
+      font-weight: 700;
+      padding: 0 8px;
+      cursor: pointer;
+    }
+
+    .unassigned-tasks{
+      position: absolute;
+      right: 0;
+      background: #EDEFF0;
+      border-radius: 3px;
+      border: 1px solid #d6dadc;
+      z-index: 70;
+      margin-top: 6px;
+      padding: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,.15);
+      box-sizing: border-box;
+      width: 300px;
+      font-weight: normal;
+      line-height: normal;
+    }
+
+    .menu-header {
+      line-height: 1.2em;
+      color: $textColor;
+      margin: 13px 30px 9pt;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 1pc;
+      font-weight: 700;
+    }
+
+    .menu-content {
+      border-top: 1px solid #D6DADC;
+      padding-top: 10px;
+    }
+  }
+}
+
+.content {
+  height: 100%;
+  margin: 8px;
+  margin-top: 48px;
+  z-index: 1;
+}
+
+.table {
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+  color: $textColor;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  z-index: 1;
+
+  .points {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $storyPointsColor;
+    padding: 8px 10px;
+    &:before {
+      font-family: FontAwesome;
+      content: "\f0eb";
+      padding-right: 5px;
+    }
+  }
+
+  .list-header {
+    height: auto;
+    font-weight: 700;
+    line-height: 1.2em;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    position: relative;
+  }
+
+  .story-row {
+    display: flex;
+    width: 100%;
+
+    &:first-child {
+      .list {
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+      }
+    }
+
+    &:last-child {
+      .list {
+        border-bottom: none;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
+    }
+  }
+
+  .list{
+    position: relative;
+    width: 270px;
+    min-width: 135px;
+    padding: 8px 10px;
+    margin: 0 2px;
+    background-color: $boardScrumBackground;
+    border-bottom: 1px solid $boardStorySeparator;
+
+    &.drag-target {
+      background-color: $boardDragTargetBackground;
+    }
+  }
+}

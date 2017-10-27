@@ -1,0 +1,44 @@
+.btn {
+  display: inline-block;
+  font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-sizing: border-box;
+  margin: 8px 4px 0 0;
+  transition: background .3s ease;
+  border-radius: 3px;
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+  }
+
+  &.focus {
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    outline: 0;
+  }
+}
+
+.btn-primary {
+  background-color: #5AAC44;
+  box-shadow: 0 1px 0 #519839;
+  color: #fff;
+}

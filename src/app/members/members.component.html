@@ -1,0 +1,23 @@
+<div class="members">
+  <div class="container">
+    <ul class="list">
+      <li *ngFor="let member of members"
+          class="member-item"
+          (click)="toggleMember(member.id, $event)">
+          <div class="member" [class]="selected(member.id)">
+            <span class="avatar">
+              <img
+                *ngIf="member.avatarHash"
+                src="https://trello-avatars.s3.amazonaws.com/{{ member.avatarHash }}/30.png"
+                title="{{ member.fullName }}" />
+              <span class="initials"
+                *ngIf="!member.avatarHash">
+                {{ member.initials }}
+              </span>
+            </span>
+            <span class="full-name">{{ member.fullName }} ({{ member.username }})</span>
+          </div>
+      </li>
+    </ul>
+  </div>
+</div>

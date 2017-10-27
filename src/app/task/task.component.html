@@ -1,0 +1,36 @@
+<div draggable [dragData]="card" class="card">
+  <div *ngIf="!card.edit"
+    (dblclick)="editTask()"
+    class="name">{{ card.name }}</div>
+  <textarea #nameField *ngIf="card.edit"
+    (keydown)="handleKeydown($event)"
+    [(ngModel)]="card.name"
+    autosize
+    class="name">{{ card.name }}</textarea>
+  <div class="badges">
+    <div *ngIf="card.shortUrl" class="badge card-detail" (click)="openUrl(card.shortUrl)" title="Card detail"></div>
+    <div
+      class="badge edit-members"
+      title="Edit Members"
+      member-selection
+      [idMembers]="card.idMembers"
+      [card]="card"
+      (saveMembers)="save()"></div>
+  </div>
+  <div class="members">
+    <div *ngFor="let member of members | memberfilter:card.idMembers" class="member">
+      <img
+        *ngIf="member.avatarHash"
+        src="https://trello-avatars.s3.amazonaws.com/{{ member.avatarHash }}/30.png"
+        title="{{ memberfullName }}" />
+      <span class="initials"
+        *ngIf="!member.avatarHash">
+        {{ member.initials }}
+      </span>
+    </div>
+  </div>
+</div>
+<div *ngIf="card.edit" class="actions">
+  <button (click)="save()" class="btn btn-primary">Save</button>
+  <button (click)="cancel()" class="btn btn-cancel">Cancel</button>
+</div>

@@ -1,0 +1,26 @@
+<div class="header">
+  <div class="name">Scrum Board Setup</div>
+</div>
+<div class="content">
+  <div *ngIf="error" class="error">
+    Board URL doesn't seem to be a valid Trello board
+  </div>
+  <div class="board">
+    <h2>Board URL</h2>
+    <div class="url-wrapper">
+      <input
+        type="input"
+        class="url"
+        [(ngModel)]="boardurl"
+        (keypress)="onKeypress($event)"
+        placeholder="Trello board url to scrumify" />
+    </div>
+    <div class="button">
+      <button class="btn btn-primary" (click)="continue()">Continue</button>
+    </div>
+  </div>
+  <div class="directions">
+    <p>Your Trello board must have two lists called <span class="bold">Sprint Backlog</span> and <span class="bold">Done</span>, see below.</p>
+    <img src="assets/example.png" class="example-image" />
+  </div>
+</div>

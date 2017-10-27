@@ -1,0 +1,14 @@
+<div class="card">
+  <span class="add-icon" (click)="addNewTask()" title="Add task"></span>
+  <div class="labels">
+    <span
+      *ngFor="let label of card.labels"
+      class="card-label {{ label.color }}"
+      title="{{ label.name }}">{{ label.name }}</span>
+  </div>
+  <div class="name">{{ card.name }}</div>
+  <div class="badges">
+    <div class="badge card-detail" (click)="openUrl(card.shortUrl)" title="Card detail"></div>
+    <div class="badge points" title="story points">{{ card.points }}</div>
+  </div>
+</div>

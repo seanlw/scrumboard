@@ -1,0 +1,128 @@
+@import 'bootstrap';
+
+.card {
+  padding: 6px 6px 2px 8px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 6px;
+  max-width: 300px;
+  min-height: 20px;
+  position: relative;
+
+  .add-icon {
+    z-index: 40;
+    position: absolute;
+    opacity: .8;
+    top: 3px;
+    right: 3px;
+    color: $cardDetailColor;
+    height: 18px;
+    width: 18px;
+    font-size: 9pt;
+    line-height: 18px;
+    padding: 4px;
+
+    &:before {
+      font-family: FontAwesome;
+      content: "\f067";
+    }
+  }
+
+  .labels {
+    margin: 2px 0;
+    overflow: auto;
+
+    .card-label {
+      height: 1pc;
+      min-width: 42px;
+      max-width: 198px;
+      float: left;
+      margin: 0 3px 3px 0;
+      padding: 0 8px;
+      border-radius: 3px;
+      color: #fff;
+      display: block;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 9pt;
+      font-weight: 600;
+      line-height: 1pc;
+      overflow: hidden;
+    }
+
+    .green {
+      background-color: $green;
+    }
+    .purple {
+      background-color: $purple;
+    }
+    .yellow {
+      background-color: $yellow;
+    }
+    .orange {
+      background-color: $orange;
+    }
+    .red {
+      background-color: $red;
+    }
+    .blue {
+      background-color: $blue;
+    }
+    .black {
+      background-color: $black;
+    }
+  }
+
+  .name {
+    clear: both;
+    margin: 0 0 4px;
+    overflow: hidden;
+    word-wrap: break-word;
+    color: #4d4d4d;
+  }
+
+  .badges {
+    padding-bottom: 2px;
+    max-width: 100%;
+
+    .badge {
+      color: $badgeColor;
+      display: inline-block;
+      margin: 0 4px 4px 0;
+      max-width: 100%;
+      overflow: hidden;
+      padding: 1px 2px;
+      text-decoration: none;
+      text-overflow: ellipsis;
+    }
+
+    .card-detail {
+      color: $cardDetailColor;
+
+      &:before {
+        font-family: FontAwesome;
+        content: "\f039";
+      }
+    }
+
+    .points {
+      text-align: right;
+      font-size: 12px;
+      line-height: 18px;
+      background-color: #006580;
+      color: rgb(225, 250, 251);
+      border-radius: 3px;
+      border-color: rgb(0, 91, 114) rgb(0, 91, 114) rgb(0, 75, 95);
+      padding: 0px 4px;
+
+      &:before {
+        font-family: FontAwesome;
+        content: "\f0eb";
+        padding-right: 5px;
+      }
+    }
+
+  }
+}
