@@ -17,7 +17,7 @@ You must have at least two lists created `Sprint Backlog` and `Done`. You can cr
 of lists between `Sprint Backlog` and `Done` as you like to have them displayed in the Scrum Board.
 
 Each card created in the `Sprint Backlog` will be treated as a story. All other cards created in other
-lists will be treated as tasks. Us the Scrum Board to create tasks from stories and keep track of their
+lists will be treated as tasks. Use the Scrum Board to create tasks from stories and keep track of their
 progress within the Scrum Board.
 
 ## Development
