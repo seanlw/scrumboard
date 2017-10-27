@@ -12,6 +12,7 @@ export class TrelloService {
   private authEndpoint   = 'https://trello.com';
   private intentEndpoint = 'https://trello.com';
   private localStorage: any = localStorage;
+  private baseUrl = '';
 
   public board: any;
   public members: any[] = [];
@@ -23,11 +24,14 @@ export class TrelloService {
   @Output() storiesChanged: EventEmitter<any> = new EventEmitter<any>();
   @Output() tasksChanged: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+    let base = document.getElementsByTagName('base')[0];
+    this.baseUrl = base.baseURI;
+  }
 
   public authenticate(): void {
     let authParams = {
-      redirect_uri: window.location.href + 'authenticated',
+      redirect_uri: this.baseUrl + 'authenticated',
       callback_method: 'fragment',
       scope: 'read,write',
       expiration: 'never',
@@ -56,7 +60,7 @@ export class TrelloService {
   public boardId(): string {
     let id = this.getBoardId();
     if (!id) {
-      window.location.href = window.location.href + 'boards';
+      window.location.href = this.baseUrl + 'boards';
       return null;
     }
     return id;
